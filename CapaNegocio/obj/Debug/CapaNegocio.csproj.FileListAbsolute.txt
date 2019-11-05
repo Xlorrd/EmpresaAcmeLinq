@@ -1,0 +1,10 @@
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\bin\Debug\CapaDatos.dll.config
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaNegocio\obj\Debug\CapaNegocio.pdb

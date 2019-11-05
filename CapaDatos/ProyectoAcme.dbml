@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ProyectoAcme" Class="ProyectoAcmeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-MKA0APU\SQL;Initial Catalog=ProyectoAcme;Integrated Security=True" SettingsObjectName="CapaDatos.Properties.Settings" SettingsPropertyName="ProyectoAcmeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Paciente" Member="Paciente">
+    <Type Name="Paciente">
+      <Column Name="paci_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="paci_peso" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="paci_tiposangre" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="paci_estatura" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="paci_sintoma" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="per_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Persona" Member="Persona">
+    <Type Name="Persona">
+      <Column Name="per_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="per_nombres" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="per_apellidos" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="per_cedula" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="per_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="per_telefono" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="per_fechanacimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="per_genero" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="per_direccion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="per_estado" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="per_fechaCreacion" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="per_usuario" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="per_contrasenia" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_tipousu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCapacitacion" Member="tblCapacitacion">
+    <Type Name="tblCapacitacion">
+      <Column Name="idCapacitacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fechaIni" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fechaFin" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="idEmpleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblEmpleado_tblCapacitacion" Member="tblEmpleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="tblEmpleado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblCargo" Member="tblCargo">
+    <Type Name="tblCargo">
+      <Column Name="idCargo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblCargo_tblEmpleado" Member="tblEmpleado" ThisKey="idCargo" OtherKey="idCargo" Type="tblEmpleado" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDepartamento" Member="tblDepartamento">
+    <Type Name="tblDepartamento">
+      <Column Name="idDepartamento" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="tblDepartamento_tblEmpleado" Member="tblEmpleado" ThisKey="idDepartamento" OtherKey="idDepartamento" Type="tblEmpleado" />
+      <Association Name="tblDepartamento_tblEmpresa" Member="tblEmpresa" ThisKey="idDepartamento" OtherKey="idDepartamento" Type="tblEmpresa" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDtosFamilia" Member="tblDtosFamilia">
+    <Type Name="tblDtosFamilia">
+      <Column Name="idDtosFamilia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombrePaterno" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="nombreMaterno" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEmpleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblEmpleado_tblDtosFamilia" Member="tblEmpleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="tblEmpleado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEmpleado" Member="tblEmpleado">
+    <Type Name="tblEmpleado">
+      <Column Name="idEmpleado" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombres" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="cedula" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="contra" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="idDepartamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idCargo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblEmpleado_tblCapacitacion" Member="tblCapacitacion" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="tblCapacitacion" />
+      <Association Name="tblEmpleado_tblDtosFamilia" Member="tblDtosFamilia" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="tblDtosFamilia" />
+      <Association Name="tblEmpleado_tblReferencia" Member="tblReferencia" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="tblReferencia" />
+      <Association Name="tblCargo_tblEmpleado" Member="tblCargo" ThisKey="idCargo" OtherKey="idCargo" Type="tblCargo" IsForeignKey="true" />
+      <Association Name="tblDepartamento_tblEmpleado" Member="tblDepartamento" ThisKey="idDepartamento" OtherKey="idDepartamento" Type="tblDepartamento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblEmpresa" Member="tblEmpresa">
+    <Type Name="tblEmpresa">
+      <Column Name="idEmpresa" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="idDepartamento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblDepartamento_tblEmpresa" Member="tblDepartamento" ThisKey="idDepartamento" OtherKey="idDepartamento" Type="tblDepartamento" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblReferencia" Member="tblReferencia">
+    <Type Name="tblReferencia">
+      <Column Name="idReferencia" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombres" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tipoReferencia" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="idEmpleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="tblEmpleado_tblReferencia" Member="tblEmpleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="tblEmpleado" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Persona" Member="Tbl_Persona">
+    <Type Name="Tbl_Persona">
+      <Column Name="per_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="per_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="per_apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="per_cedula" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="per_correo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="per_fch_nacimiento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="per_direccion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="per_fch_creacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="per_estado" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Usuario" Member="Tbl_Usuario">
+    <Type Name="Tbl_Usuario">
+      <Column Name="usu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="per_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="usu_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_contra" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_estado" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="roll_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.editarCapacitacion" Method="editarCapacitacion">
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fechaIni" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fechaFin" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="idEmpleado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idCapacitacion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.editarCargo" Method="editarCargo">
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="idCargo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.editarDepartamento" Method="editarDepartamento">
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="idDepartamento" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.editarDtosFamilia" Method="editarDtosFamilia">
+    <Parameter Name="nombrePaterno" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="nombreMaterno" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="direccion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idEmpleado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idDtosFamilia" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.editarEmpleado" Method="editarEmpleado">
+    <Parameter Name="idEmpleado" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombres" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="direccion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="correo" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cedula" Type="System.Int32" DbType="Int" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="contra" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="idDepartamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idCargo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.editarEmpresa" Method="editarEmpresa">
+    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="direccion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="idDepartamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idEmpresa" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EditarProductos" Method="EditarProductos" IsComposable="true">
+    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="desc" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Parameter Name="stock" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.editarReferencia" Method="editarReferencia">
+    <Parameter Name="idReferencia" Type="System.Int32" DbType="Int" />
+    <Parameter Name="nombres" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tipoReferencia" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="idEmpleado" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.eliminarCapacitacion" Method="eliminarCapacitacion">
+    <Parameter Name="idCapacitacion" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.eliminarCargo" Method="eliminarCargo">
+    <Parameter Name="idCargo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.eliminarDepartamento" Method="eliminarDepartamento">
+    <Parameter Name="idDepartamento" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.eliminarDtosFamilia" Method="eliminarDtosFamilia">
+    <Parameter Name="idDtosFamilia" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.eliminarEmpleado" Method="eliminarEmpleado">
+    <Parameter Name="idEmpleado" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.eliminarEmpresa" Method="eliminarEmpresa">
+    <Parameter Name="idEmpresa" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EliminarProductos" Method="EliminarProductos" IsComposable="true">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.eliminarReferencia" Method="eliminarReferencia">
+    <Parameter Name="idReferencia" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertarCapacitacion" Method="insertarCapacitacion">
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="fechaIni" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="fechaFin" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="idEmpleado" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertarCargo" Method="insertarCargo">
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertarDepartamento" Method="insertarDepartamento">
+    <Parameter Name="descripcion" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertarDtosFamilia" Method="insertarDtosFamilia">
+    <Parameter Name="nombrePaterno" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="nombreMaterno" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="direccion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idEmpleado" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertarEmpleado" Method="insertarEmpleado">
+    <Parameter Name="nombres" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="direccion" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="correo" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="cedula" Type="System.Int32" DbType="Int" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="contra" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="idDepartamento" Type="System.Int32" DbType="Int" />
+    <Parameter Name="idCargo" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.insertarEmpresa" Method="insertarEmpresa">
+    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="direccion" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="idDepartamento" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertarProductos" Method="InsertarProductos" IsComposable="true">
+    <Parameter Name="nombre" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="desc" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="precio" Type="System.Double" DbType="Float" />
+    <Parameter Name="stock" Type="System.Int32" DbType="Int" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.insertarReferencia" Method="insertarReferencia">
+    <Parameter Name="nombres" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="telefono" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tipoReferencia" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="idEmpleado" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.mostrarCapacitacion" Method="mostrarCapacitacion">
+    <ElementType Name="mostrarCapacitacionResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fechaIni" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="fechaFin" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Nombres" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.mostrarCargo" Method="mostrarCargo">
+    <ElementType Name="mostrarCargoResult">
+      <Column Name="idCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.mostrarCartgo" Method="mostrarCartgo">
+    <ElementType Name="mostrarCartgoResult">
+      <Column Name="idCargo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.mostrarDepartamento" Method="mostrarDepartamento">
+    <ElementType Name="mostrarDepartamentoResult">
+      <Column Name="idDepartamento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.mostrarDtosFamilia" Method="mostrarDtosFamilia">
+    <ElementType Name="mostrarDtosFamiliaResult">
+      <Column Name="idDtosFamilia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombrePaterno" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="nombreMaterno" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="idEmpleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.mostrarEmpleado" Method="mostrarEmpleado">
+    <ElementType Name="mostrarEmpleadoResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombres" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="cedula" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="telefono" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="contra" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Departamento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Cargo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.mostrarEmpresa" Method="mostrarEmpresa">
+    <ElementType Name="mostrarEmpresaResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="direccion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Departamento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
