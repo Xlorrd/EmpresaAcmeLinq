@@ -1,0 +1,7 @@
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaDatos\obj\Debug\CapaDatos.csprojAssemblyReference.cache
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Xlorrd\Documents\Mega\Mis ejerciocios\C#\1corregidos\EmpresaAcemeLinq\CapaDatos\obj\Debug\CapaDatos.pdb
