@@ -28,6 +28,30 @@
       <Column Name="id_tipousu" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.Tbl_Persona" Member="Tbl_Persona">
+    <Type Name="Tbl_Persona">
+      <Column Name="per_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="per_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="per_apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="per_cedula" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="per_correo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="per_fch_nacimiento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="per_direccion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="per_fch_creacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="per_estado" Type="System.String" DbType="Char(2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Usuario" Member="Tbl_Usuario">
+    <Type Name="Tbl_Usuario">
+      <Column Name="usu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="per_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="usu_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_contra" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="usu_estado" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="usu_rec_correo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="roll_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.tblCapacitacion" Member="tblCapacitacion">
     <Type Name="tblCapacitacion">
       <Column Name="idCapacitacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -99,29 +123,6 @@
       <Column Name="tipoReferencia" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="idEmpleado" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="tblEmpleado_tblReferencia" Member="tblEmpleado" ThisKey="idEmpleado" OtherKey="idEmpleado" Type="tblEmpleado" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Tbl_Persona" Member="Tbl_Persona">
-    <Type Name="Tbl_Persona">
-      <Column Name="per_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="per_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="per_apellido" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="per_cedula" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="per_correo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="per_fch_nacimiento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="per_direccion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="per_fch_creacion" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="per_estado" Type="System.String" DbType="Char(2)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Tbl_Usuario" Member="Tbl_Usuario">
-    <Type Name="Tbl_Usuario">
-      <Column Name="usu_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="per_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="usu_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="usu_contra" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="usu_estado" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="roll_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.editarCapacitacion" Method="editarCapacitacion">
